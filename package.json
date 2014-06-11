@@ -1,0 +1,16 @@
+{
+  "name": "10paste",
+  "version": "0.0.0",
+  "description": "Minimalistic 10-minute pastebin service",
+  "main": "web.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "heroku",
+    "paste",
+    "pastebin"
+  ],
+  "author": "nucular",
+  "license": "MIT"
+}
