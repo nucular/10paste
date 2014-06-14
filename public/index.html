@@ -10,10 +10,12 @@
 <body>
   <div id="wrapper">
     <div id="content">
-      <h1>10paste</h1>
+      <div id="header">
+        <a href="/public/index.html"><img id="logo" src="/public/logo.png"/></a>
+      </div>
       <form name="paste" action="/post" method="post">
-        <textarea id="text-area" name="data" placeholder="Enter you 10-minute paste."></textarea>
-        <div id="submit-button" onclick="document.forms['paste'].submit();">Paste</div>
+        <textarea id="text-area" name="data" placeholder="Enter your 10-minute paste"></textarea>
+        <div id="button" onclick="document.forms['paste'].submit();">Paste</div>
       </form>
     </div>
   </div>
