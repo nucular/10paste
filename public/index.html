@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>10paste</title>
-    <link rel="stylesheet" href="/public/style.css">
-    <script type="text/javascript" src="/public/script.js"></script>
+  <title>10paste</title>
+
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic&subset=latin-ext">
+  <link rel="stylesheet" href="/public/style.css">
+  <script type="text/javascript" src="/public/script.js"></script>
 </head>
 <body>
-    <form action="/post" method="post">
-        <textarea name="data"></textarea>
-        <input type="submit" value="Paste">
-    </form>
+  <div id="wrapper">
+    <div id="content">
+      <h1>10paste</h1>
+      <form name="paste" action="/post" method="post">
+        <textarea id="text-area" name="data" placeholder="Enter you 10-minute paste."></textarea>
+        <div id="submit-button" onclick="document.forms['paste'].submit();">Paste</div>
+      </form>
+    </div>
+  </div>
 </body>
 </html>
