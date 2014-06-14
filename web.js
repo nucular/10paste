@@ -52,28 +52,6 @@ app.get("/public/:file", function(req, res) {
 });
 
 
-// Serves a paste
-var re = new RegExp("^\\/([a-z0-9]{1," + (process.env.IDLENGTH || "2") + "})(\\.\\w+)?\\/?$");
-app.get(re, function(req, res) {
-  var file = req.params[0];
-  var ext = req.params[1];
-
-  // MIME type handling
-  var type = mime.lookup(ext, "");
-  if (!res.getHeader("content-type") && type != "") {
-    var charset = mime.charsets.lookup(type);
-    res.setHeader("Content-Type", type + (charset ? "; charset=" + charset : ""));
-  }
-
-  // Send the file
-  res.sendfile(path.join(__dirname, "pastes", file), {}, function(err) {
-    if (err) {
-      res.setHeader("Content-Type", "text/html");
-      res.status(404).sendfile(path.join(__dirname, "public", "404.html"));
-    }
-  });
-});
-
 // Posts a paste
 app.post("/post", function(req, res) {
   var data = req.body.data;
@@ -107,6 +85,30 @@ app.post("/post", function(req, res) {
       pastes[id] = 0;
       console.log("Succeeded writing paste '" + id + "'");
       res.redirect("/" + id + ".txt");
+    }
+  });
+});
+
+// Serves a raw paste
+app.get("/:name", function(req, res) {
+  var ext = path.extname(req.params.name);
+  var id = path.basename(req.params.name, ext);
+
+  if (!ext)
+    ext = ".txt";
+
+  // MIME type handling
+  var type = mime.lookup(ext, "");
+  if (!res.getHeader("content-type") && type != "") {
+    var charset = mime.charsets.lookup(type);
+    res.setHeader("Content-Type", type + (charset ? "; charset=" + charset : ""));
+  }
+
+  // Send the file
+  res.sendfile(path.join(__dirname, "pastes", id), {}, function(err) {
+    if (err) {
+      res.setHeader("Content-Type", "text/html");
+      res.status(404).sendfile(path.join(__dirname, "public", "404.html"));
     }
   });
 });

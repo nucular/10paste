@@ -3,18 +3,27 @@
 <head>
   <title>10paste</title>
 
+  <meta charset="utf-8">
+  <meta name="description" 
+        content="Minimalistic 10-minute paste service with modificable content-type">
+  <meta name="author" content="nucular">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <link rel="shortcut icon" href="/public/favicon.ico">
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic&subset=latin-ext">
   <link rel="stylesheet" href="/public/style.css">
+
+  <script type="text/javascript" src="/public/jquery-1.9.1.min.js"></script>
   <script type="text/javascript" src="/public/script.js"></script>
 </head>
 <body>
   <div id="wrapper">
     <div id="content">
       <div id="header">
-        <a href="/public/index.html"><img id="logo" src="/public/logo.png"/></a>
+        <a href="/"><img id="logo" src="/public/logo.png"/></a>
       </div>
       <div class="message">
-        10paste allows you to share longer text with others. This is useful for IRC and similar chat services.
+        10paste allows you to share long text with others. This is useful for IRC and similar chat services.
       </div>
       <form name="paste" action="/post" method="post">
         <textarea id="text-area" name="data" placeholder="Enter your 10-minute paste"></textarea>
