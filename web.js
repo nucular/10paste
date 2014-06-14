@@ -52,7 +52,7 @@ app.get("/public/:file", function(req, res) {
 
 
 // Serves a paste
-app.get(/^\/([a-b0-9]{1,2})(\.\w+)?\/?$/, function(req, res) {
+app.get(/^\/([a-z0-9]{1,2})(\.\w+)?\/?$/, function(req, res) {
   var file = req.params[0];
   var ext = req.params[1];
 
