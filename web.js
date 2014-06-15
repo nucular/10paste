@@ -53,7 +53,7 @@ app.get("/public/:file", function(req, res) {
 
 
 // Posts a paste
-app.post("/post", function(req, res) {
+app.post("/upload", function(req, res) {
   var data = req.body.data;
   var id;
 
