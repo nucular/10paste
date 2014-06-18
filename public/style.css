@@ -61,6 +61,18 @@ a {
 
 #logo {
   margin-top: 10px;
+  padding-bottom: 0px;
+  transition: all 0.2s ease-in;
+}
+
+#logo:hover {
+  margin-top: 8px;
+  transition: all 0.2s ease-out;
+}
+
+#logo:active {
+  margin-top: 12px;
+  transition: none;
 }
 
 #text-area {
@@ -107,11 +119,12 @@ a {
 #button:hover {
   background-color: #e0e0e0;
   line-height: 40px;
-  transition: all 0.2s ease-in;
+  transition: background-color 0.1s ease-in, line-height 0.2s ease-out;
 }
 
 #button:active {
   background-color: #ccc;
+  transition: none;
 }
 
 .message {
