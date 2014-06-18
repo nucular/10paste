@@ -24,6 +24,7 @@ var app = express();
 // middleware
 app.use(logfmt.requestLogger()); // logfmt
 app.use(express.urlencoded()); // support URL-encoded bodies
+app.use(express.limit("1mb")); // limit uploads
 
 
 // Serves the main page

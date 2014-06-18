@@ -18,4 +18,18 @@ $(function() {
             }
         }, 1000 / 15);
     }
+
+    // drag and drop stuff
+    $("#text-area").bind("dragenter", function(e) {
+        e.stopPropagation();
+        e.preventDefault();
+        e.originalEvent.dataTransfer.dropEffect = "copy";
+    }).bind("drop", function(e) {
+        e.stopPropagation();
+        var file = e.originalEvent.dataTransfer.files[0];
+        console.log(file);
+        e.preventDefault();
+    });
+
+    // submit button for the textarea
 });
